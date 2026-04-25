@@ -1,0 +1,706 @@
+=== Void button8_Click(System.Object, System.EventArgs) ===
+IL_0000: nop
+IL_0001: ldarg.0
+IL_0002: ldfld USBHIDSET.Form1::label1
+IL_0007: callvirt System.Windows.Forms.Control::get_Text()
+IL_000C: ldstr "连接成功"
+IL_0011: call System.String::op_Inequality(String, String)
+IL_0016: stloc.1
+IL_0017: ldloc.1
+IL_0018: brfalse.s IL_0030
+IL_001A: nop
+IL_001B: ldstr "设备未连接！"
+IL_0020: ldstr "提示"
+IL_0025: call System.Windows.Forms.MessageBox::Show(String, String)
+IL_002A: pop
+IL_002B: br IL_00E9
+IL_0030: ldc.i4.8
+IL_0031: newarr System.Byte
+IL_0036: stloc.0
+IL_0037: ldloc.0
+IL_0038: ldc.i4.0
+IL_0039: ldc.i4.0
+IL_003A: stelem.i1
+IL_003B: ldloc.0
+IL_003C: ldc.i4.1
+IL_003D: ldc.i4 238
+IL_0042: stelem.i1
+IL_0043: ldloc.0
+IL_0044: ldc.i4.2
+IL_0045: ldarg.0
+IL_0046: ldarg.0
+IL_0047: ldfld USBHIDSET.Form1::comboBox7
+IL_004C: callvirt System.Windows.Forms.Control::get_Text()
+IL_0051: call System.Convert::ToInt32(String)
+IL_0056: call USBHIDSET.Form1::intToBytes(Int32)
+IL_005B: ldc.i4.0
+IL_005C: ldelem.u1
+IL_005D: stelem.i1
+IL_005E: ldloc.0
+IL_005F: ldc.i4.3
+IL_0060: ldarg.0
+IL_0061: ldarg.0
+IL_0062: ldfld USBHIDSET.Form1::comboBox9
+IL_0067: callvirt System.Windows.Forms.Control::get_Text()
+IL_006C: call System.Convert::ToInt32(String)
+IL_0071: call USBHIDSET.Form1::intToBytes(Int32)
+IL_0076: ldc.i4.0
+IL_0077: ldelem.u1
+IL_0078: stelem.i1
+IL_0079: ldloc.0
+IL_007A: ldc.i4.4
+IL_007B: ldarg.0
+IL_007C: ldarg.0
+IL_007D: ldfld USBHIDSET.Form1::comboBox3
+IL_0082: callvirt System.Windows.Forms.Control::get_Text()
+IL_0087: call System.Convert::ToInt32(String)
+IL_008C: call USBHIDSET.Form1::intToBytes(Int32)
+IL_0091: ldc.i4.0
+IL_0092: ldelem.u1
+IL_0093: stelem.i1
+IL_0094: ldarg.0
+IL_0095: ldfld USBHIDSET.Form1::connBool
+IL_009A: brfalse.s IL_00A7
+IL_009C: ldarg.0
+IL_009D: ldfld USBHIDSET.Form1::Devicexz
+IL_00A2: ldnull
+IL_00A3: cgt.un
+IL_00A5: br.s IL_00A8
+IL_00A7: ldc.i4.0
+IL_00A8: stloc.2
+IL_00A9: ldloc.2
+IL_00AA: brfalse.s IL_00DC
+IL_00AC: nop
+IL_00AD: ldarg.0
+IL_00AE: ldloc.0
+IL_00AF: call USBHIDSET.Form1::Usb_send_data(Byte[])
+IL_00B4: ldc.i4.0
+IL_00B5: ceq
+IL_00B7: stloc.3
+IL_00B8: ldloc.3
+IL_00B9: brfalse.s IL_00CA
+IL_00BB: nop
+IL_00BC: ldstr "发送失败"
+IL_00C1: call System.Windows.Forms.MessageBox::Show(String)
+IL_00C6: pop
+IL_00C7: nop
+IL_00C8: br.s IL_00D9
+IL_00CA: nop
+IL_00CB: ldarg.0
+IL_00CC: ldfld USBHIDSET.Form1::timer2
+IL_00D1: ldc.i4.1
+IL_00D2: callvirt System.Windows.Forms.Timer::set_Enabled(Boolean)
+IL_00D7: nop
+IL_00D8: nop
+IL_00D9: nop
+IL_00DA: br.s IL_00E9
+IL_00DC: nop
+IL_00DD: ldstr "请连接USB"
+IL_00E2: call System.Windows.Forms.MessageBox::Show(String)
+IL_00E7: pop
+IL_00E8: nop
+IL_00E9: ret
+
+=== Void button9_Click(System.Object, System.EventArgs) ===
+IL_0000: nop
+IL_0001: ldarg.0
+IL_0002: ldfld USBHIDSET.Form1::label1
+IL_0007: callvirt System.Windows.Forms.Control::get_Text()
+IL_000C: ldstr "连接成功"
+IL_0011: call System.String::op_Inequality(String, String)
+IL_0016: stloc.2
+IL_0017: ldloc.2
+IL_0018: brfalse.s IL_0030
+IL_001A: nop
+IL_001B: ldstr "设备未连接！"
+IL_0020: ldstr "提示"
+IL_0025: call System.Windows.Forms.MessageBox::Show(String, String)
+IL_002A: pop
+IL_002B: br IL_0342
+IL_0030: ldc.i4.4
+IL_0031: newarr System.Byte
+IL_0036: stloc.0
+IL_0037: ldarg.0
+IL_0038: ldfld USBHIDSET.Form1::comboBox6
+IL_003D: callvirt System.Windows.Forms.ListControl::get_SelectedIndex()
+IL_0042: stloc.s V_4
+IL_0044: ldloc.s V_4
+IL_0046: stloc.3
+IL_0047: ldloc.3
+IL_0048: switch IL_006F, IL_0075, IL_007B, IL_0081, IL_0087, IL_008E, IL_0095, IL_009C
+IL_006D: br.s IL_00A6
+IL_006F: ldloc.0
+IL_0070: ldc.i4.0
+IL_0071: ldc.i4.1
+IL_0072: stelem.i1
+IL_0073: br.s IL_00A6
+IL_0075: ldloc.0
+IL_0076: ldc.i4.0
+IL_0077: ldc.i4.2
+IL_0078: stelem.i1
+IL_0079: br.s IL_00A6
+IL_007B: ldloc.0
+IL_007C: ldc.i4.0
+IL_007D: ldc.i4.4
+IL_007E: stelem.i1
+IL_007F: br.s IL_00A6
+IL_0081: ldloc.0
+IL_0082: ldc.i4.0
+IL_0083: ldc.i4.8
+IL_0084: stelem.i1
+IL_0085: br.s IL_00A6
+IL_0087: ldloc.0
+IL_0088: ldc.i4.0
+IL_0089: ldc.i4.s 16
+IL_008B: stelem.i1
+IL_008C: br.s IL_00A6
+IL_008E: ldloc.0
+IL_008F: ldc.i4.0
+IL_0090: ldc.i4.s 32
+IL_0092: stelem.i1
+IL_0093: br.s IL_00A6
+IL_0095: ldloc.0
+IL_0096: ldc.i4.0
+IL_0097: ldc.i4.s 64
+IL_0099: stelem.i1
+IL_009A: br.s IL_00A6
+IL_009C: ldloc.0
+IL_009D: ldc.i4.0
+IL_009E: ldc.i4 128
+IL_00A3: stelem.i1
+IL_00A4: br.s IL_00A6
+IL_00A6: ldarg.0
+IL_00A7: ldfld USBHIDSET.Form1::comboBox4
+IL_00AC: callvirt System.Windows.Forms.ListControl::get_SelectedIndex()
+IL_00B1: stloc.s V_6
+IL_00B3: ldloc.s V_6
+IL_00B5: stloc.s V_5
+IL_00B7: ldloc.s V_5
+IL_00B9: switch IL_00F0, IL_00F7, IL_00FE, IL_0105, IL_010C, IL_0113, IL_011A, IL_0121, IL_0128, IL_012F, IL_0136, IL_013D
+IL_00EE: br.s IL_0144
+IL_00F0: ldloc.0
+IL_00F1: ldc.i4.1
+IL_00F2: ldc.i4.s 58
+IL_00F4: stelem.i1
+IL_00F5: br.s IL_0144
+IL_00F7: ldloc.0
+IL_00F8: ldc.i4.1
+IL_00F9: ldc.i4.s 59
+IL_00FB: stelem.i1
+IL_00FC: br.s IL_0144
+IL_00FE: ldloc.0
+IL_00FF: ldc.i4.1
+IL_0100: ldc.i4.s 60
+IL_0102: stelem.i1
+IL_0103: br.s IL_0144
+IL_0105: ldloc.0
+IL_0106: ldc.i4.1
+IL_0107: ldc.i4.s 61
+IL_0109: stelem.i1
+IL_010A: br.s IL_0144
+IL_010C: ldloc.0
+IL_010D: ldc.i4.1
+IL_010E: ldc.i4.s 62
+IL_0110: stelem.i1
+IL_0111: br.s IL_0144
+IL_0113: ldloc.0
+IL_0114: ldc.i4.1
+IL_0115: ldc.i4.s 63
+IL_0117: stelem.i1
+IL_0118: br.s IL_0144
+IL_011A: ldloc.0
+IL_011B: ldc.i4.1
+IL_011C: ldc.i4.s 64
+IL_011E: stelem.i1
+IL_011F: br.s IL_0144
+IL_0121: ldloc.0
+IL_0122: ldc.i4.1
+IL_0123: ldc.i4.s 65
+IL_0125: stelem.i1
+IL_0126: br.s IL_0144
+IL_0128: ldloc.0
+IL_0129: ldc.i4.1
+IL_012A: ldc.i4.s 66
+IL_012C: stelem.i1
+IL_012D: br.s IL_0144
+IL_012F: ldloc.0
+IL_0130: ldc.i4.1
+IL_0131: ldc.i4.s 67
+IL_0133: stelem.i1
+IL_0134: br.s IL_0144
+IL_0136: ldloc.0
+IL_0137: ldc.i4.1
+IL_0138: ldc.i4.s 68
+IL_013A: stelem.i1
+IL_013B: br.s IL_0144
+IL_013D: ldloc.0
+IL_013E: ldc.i4.1
+IL_013F: ldc.i4.s 69
+IL_0141: stelem.i1
+IL_0142: br.s IL_0144
+IL_0144: ldarg.0
+IL_0145: ldfld USBHIDSET.Form1::comboBox5
+IL_014A: callvirt System.Windows.Forms.ListControl::get_SelectedIndex()
+IL_014F: stloc.s V_8
+IL_0151: ldloc.s V_8
+IL_0153: stloc.s V_7
+IL_0155: ldloc.s V_7
+IL_0157: switch IL_01B1, IL_01C2, IL_01D3, IL_01E4, IL_01F5, IL_0206, IL_0217, IL_0228, IL_0239, IL_024A, IL_0258, IL_0263, IL_026E, IL_0279, IL_0284, IL_0292, IL_029D, IL_02AB, IL_02B6, IL_02C1
+IL_01AC: br IL_02CF
+IL_01B1: ldloc.0
+IL_01B2: ldc.i4.2
+IL_01B3: ldc.i4 233
+IL_01B8: stelem.i1
+IL_01B9: ldloc.0
+IL_01BA: ldc.i4.3
+IL_01BB: ldc.i4.0
+IL_01BC: stelem.i1
+IL_01BD: br IL_02CF
+IL_01C2: ldloc.0
+IL_01C3: ldc.i4.2
+IL_01C4: ldc.i4 234
+IL_01C9: stelem.i1
+IL_01CA: ldloc.0
+IL_01CB: ldc.i4.3
+IL_01CC: ldc.i4.0
+IL_01CD: stelem.i1
+IL_01CE: br IL_02CF
+IL_01D3: ldloc.0
+IL_01D4: ldc.i4.2
+IL_01D5: ldc.i4 226
+IL_01DA: stelem.i1
+IL_01DB: ldloc.0
+IL_01DC: ldc.i4.3
+IL_01DD: ldc.i4.0
+IL_01DE: stelem.i1
+IL_01DF: br IL_02CF
+IL_01E4: ldloc.0
+IL_01E5: ldc.i4.2
+IL_01E6: ldc.i4 131
+IL_01EB: stelem.i1
+IL_01EC: ldloc.0
+IL_01ED: ldc.i4.3
+IL_01EE: ldc.i4.1
+IL_01EF: stelem.i1
+IL_01F0: br IL_02CF
+IL_01F5: ldloc.0
+IL_01F6: ldc.i4.2
+IL_01F7: ldc.i4 182
+IL_01FC: stelem.i1
+IL_01FD: ldloc.0
+IL_01FE: ldc.i4.3
+IL_01FF: ldc.i4.0
+IL_0200: stelem.i1
+IL_0201: br IL_02CF
+IL_0206: ldloc.0
+IL_0207: ldc.i4.2
+IL_0208: ldc.i4 181
+IL_020D: stelem.i1
+IL_020E: ldloc.0
+IL_020F: ldc.i4.3
+IL_0210: ldc.i4.0
+IL_0211: stelem.i1
+IL_0212: br IL_02CF
+IL_0217: ldloc.0
+IL_0218: ldc.i4.2
+IL_0219: ldc.i4 205
+IL_021E: stelem.i1
+IL_021F: ldloc.0
+IL_0220: ldc.i4.3
+IL_0221: ldc.i4.0
+IL_0222: stelem.i1
+IL_0223: br IL_02CF
+IL_0228: ldloc.0
+IL_0229: ldc.i4.2
+IL_022A: ldc.i4 183
+IL_022F: stelem.i1
+IL_0230: ldloc.0
+IL_0231: ldc.i4.3
+IL_0232: ldc.i4.0
+IL_0233: stelem.i1
+IL_0234: br IL_02CF
+IL_0239: ldloc.0
+IL_023A: ldc.i4.2
+IL_023B: ldc.i4 179
+IL_0240: stelem.i1
+IL_0241: ldloc.0
+IL_0242: ldc.i4.3
+IL_0243: ldc.i4.0
+IL_0244: stelem.i1
+IL_0245: br IL_02CF
+IL_024A: ldloc.0
+IL_024B: ldc.i4.2
+IL_024C: ldc.i4 180
+IL_0251: stelem.i1
+IL_0252: ldloc.0
+IL_0253: ldc.i4.3
+IL_0254: ldc.i4.1
+IL_0255: stelem.i1
+IL_0256: br.s IL_02CF
+IL_0258: ldloc.0
+IL_0259: ldc.i4.2
+IL_025A: ldc.i4.s 35
+IL_025C: stelem.i1
+IL_025D: ldloc.0
+IL_025E: ldc.i4.3
+IL_025F: ldc.i4.2
+IL_0260: stelem.i1
+IL_0261: br.s IL_02CF
+IL_0263: ldloc.0
+IL_0264: ldc.i4.2
+IL_0265: ldc.i4.s 36
+IL_0267: stelem.i1
+IL_0268: ldloc.0
+IL_0269: ldc.i4.3
+IL_026A: ldc.i4.2
+IL_026B: stelem.i1
+IL_026C: br.s IL_02CF
+IL_026E: ldloc.0
+IL_026F: ldc.i4.2
+IL_0270: ldc.i4.s 38
+IL_0272: stelem.i1
+IL_0273: ldloc.0
+IL_0274: ldc.i4.3
+IL_0275: ldc.i4.2
+IL_0276: stelem.i1
+IL_0277: br.s IL_02CF
+IL_0279: ldloc.0
+IL_027A: ldc.i4.2
+IL_027B: ldc.i4.s 39
+IL_027D: stelem.i1
+IL_027E: ldloc.0
+IL_027F: ldc.i4.3
+IL_0280: ldc.i4.2
+IL_0281: stelem.i1
+IL_0282: br.s IL_02CF
+IL_0284: ldloc.0
+IL_0285: ldc.i4.2
+IL_0286: ldc.i4 138
+IL_028B: stelem.i1
+IL_028C: ldloc.0
+IL_028D: ldc.i4.3
+IL_028E: ldc.i4.1
+IL_028F: stelem.i1
+IL_0290: br.s IL_02CF
+IL_0292: ldloc.0
+IL_0293: ldc.i4.2
+IL_0294: ldc.i4.s 33
+IL_0296: stelem.i1
+IL_0297: ldloc.0
+IL_0298: ldc.i4.3
+IL_0299: ldc.i4.2
+IL_029A: stelem.i1
+IL_029B: br.s IL_02CF
+IL_029D: ldloc.0
+IL_029E: ldc.i4.2
+IL_029F: ldc.i4 148
+IL_02A4: stelem.i1
+IL_02A5: ldloc.0
+IL_02A6: ldc.i4.3
+IL_02A7: ldc.i4.1
+IL_02A8: stelem.i1
+IL_02A9: br.s IL_02CF
+IL_02AB: ldloc.0
+IL_02AC: ldc.i4.2
+IL_02AD: ldc.i4.s 111
+IL_02AF: stelem.i1
+IL_02B0: ldloc.0
+IL_02B1: ldc.i4.3
+IL_02B2: ldc.i4.0
+IL_02B3: stelem.i1
+IL_02B4: br.s IL_02CF
+IL_02B6: ldloc.0
+IL_02B7: ldc.i4.2
+IL_02B8: ldc.i4.s 112
+IL_02BA: stelem.i1
+IL_02BB: ldloc.0
+IL_02BC: ldc.i4.3
+IL_02BD: ldc.i4.0
+IL_02BE: stelem.i1
+IL_02BF: br.s IL_02CF
+IL_02C1: ldloc.0
+IL_02C2: ldc.i4.2
+IL_02C3: ldc.i4 146
+IL_02C8: stelem.i1
+IL_02C9: ldloc.0
+IL_02CA: ldc.i4.3
+IL_02CB: ldc.i4.1
+IL_02CC: stelem.i1
+IL_02CD: br.s IL_02CF
+IL_02CF: ldc.i4.8
+IL_02D0: newarr System.Byte
+IL_02D5: stloc.1
+IL_02D6: ldloc.1
+IL_02D7: ldc.i4.0
+IL_02D8: ldc.i4.0
+IL_02D9: stelem.i1
+IL_02DA: ldloc.1
+IL_02DB: ldc.i4.1
+IL_02DC: ldc.i4 228
+IL_02E1: stelem.i1
+IL_02E2: ldloc.1
+IL_02E3: ldc.i4.2
+IL_02E4: ldloc.0
+IL_02E5: ldc.i4.0
+IL_02E6: ldelem.u1
+IL_02E7: stelem.i1
+IL_02E8: ldloc.1
+IL_02E9: ldc.i4.3
+IL_02EA: ldloc.0
+IL_02EB: ldc.i4.1
+IL_02EC: ldelem.u1
+IL_02ED: stelem.i1
+IL_02EE: ldloc.1
+IL_02EF: ldc.i4.4
+IL_02F0: ldloc.0
+IL_02F1: ldc.i4.2
+IL_02F2: ldelem.u1
+IL_02F3: stelem.i1
+IL_02F4: ldloc.1
+IL_02F5: ldc.i4.5
+IL_02F6: ldloc.0
+IL_02F7: ldc.i4.3
+IL_02F8: ldelem.u1
+IL_02F9: stelem.i1
+IL_02FA: ldarg.0
+IL_02FB: ldfld USBHIDSET.Form1::connBool
+IL_0300: brfalse.s IL_030D
+IL_0302: ldarg.0
+IL_0303: ldfld USBHIDSET.Form1::Devicexz
+IL_0308: ldnull
+IL_0309: cgt.un
+IL_030B: br.s IL_030E
+IL_030D: ldc.i4.0
+IL_030E: stloc.s V_9
+IL_0310: ldloc.s V_9
+IL_0312: brfalse.s IL_0335
+IL_0314: nop
+IL_0315: ldarg.0
+IL_0316: ldloc.1
+IL_0317: call USBHIDSET.Form1::Usb_send_data(Byte[])
+IL_031C: ldc.i4.0
+IL_031D: ceq
+IL_031F: stloc.s V_10
+IL_0321: ldloc.s V_10
+IL_0323: brfalse.s IL_0332
+IL_0325: nop
+IL_0326: ldstr "发送失败"
+IL_032B: call System.Windows.Forms.MessageBox::Show(String)
+IL_0330: pop
+IL_0331: nop
+IL_0332: nop
+IL_0333: br.s IL_0342
+IL_0335: nop
+IL_0336: ldstr "请连接USB"
+IL_033B: call System.Windows.Forms.MessageBox::Show(String)
+IL_0340: pop
+IL_0341: nop
+IL_0342: ret
+
+=== Void button10_Click(System.Object, System.EventArgs) ===
+IL_0000: nop
+IL_0001: ldc.i4.1
+IL_0002: newarr System.Byte
+IL_0007: stloc.0
+IL_0008: ldarg.0
+IL_0009: ldfld USBHIDSET.Form1::checkBox1
+IL_000E: callvirt System.Windows.Forms.CheckBox::get_Checked()
+IL_0013: stloc.2
+IL_0014: ldloc.2
+IL_0015: brfalse.s IL_0026
+IL_0017: nop
+IL_0018: ldloc.0
+IL_0019: ldc.i4.0
+IL_001A: ldelema System.Byte
+IL_001F: dup
+IL_0020: ldind.u1
+IL_0021: ldc.i4.2
+IL_0022: add
+IL_0023: conv.u1
+IL_0024: stind.i1
+IL_0025: nop
+IL_0026: ldarg.0
+IL_0027: ldfld USBHIDSET.Form1::checkBox2
+IL_002C: callvirt System.Windows.Forms.CheckBox::get_Checked()
+IL_0031: stloc.3
+IL_0032: ldloc.3
+IL_0033: brfalse.s IL_0044
+IL_0035: nop
+IL_0036: ldloc.0
+IL_0037: ldc.i4.0
+IL_0038: ldelema System.Byte
+IL_003D: dup
+IL_003E: ldind.u1
+IL_003F: ldc.i4.1
+IL_0040: add
+IL_0041: conv.u1
+IL_0042: stind.i1
+IL_0043: nop
+IL_0044: ldarg.0
+IL_0045: ldfld USBHIDSET.Form1::checkBox3
+IL_004A: callvirt System.Windows.Forms.CheckBox::get_Checked()
+IL_004F: stloc.s V_4
+IL_0051: ldloc.s V_4
+IL_0053: brfalse.s IL_0064
+IL_0055: nop
+IL_0056: ldloc.0
+IL_0057: ldc.i4.0
+IL_0058: ldelema System.Byte
+IL_005D: dup
+IL_005E: ldind.u1
+IL_005F: ldc.i4.4
+IL_0060: add
+IL_0061: conv.u1
+IL_0062: stind.i1
+IL_0063: nop
+IL_0064: ldarg.0
+IL_0065: ldfld USBHIDSET.Form1::checkBox4
+IL_006A: callvirt System.Windows.Forms.CheckBox::get_Checked()
+IL_006F: stloc.s V_5
+IL_0071: ldloc.s V_5
+IL_0073: brfalse.s IL_0084
+IL_0075: nop
+IL_0076: ldloc.0
+IL_0077: ldc.i4.0
+IL_0078: ldelema System.Byte
+IL_007D: dup
+IL_007E: ldind.u1
+IL_007F: ldc.i4.8
+IL_0080: add
+IL_0081: conv.u1
+IL_0082: stind.i1
+IL_0083: nop
+IL_0084: ldarg.0
+IL_0085: ldfld USBHIDSET.Form1::checkBox5
+IL_008A: callvirt System.Windows.Forms.CheckBox::get_Checked()
+IL_008F: stloc.s V_6
+IL_0091: ldloc.s V_6
+IL_0093: brfalse.s IL_00A8
+IL_0095: nop
+IL_0096: ldloc.0
+IL_0097: ldc.i4.0
+IL_0098: ldelema System.Byte
+IL_009D: dup
+IL_009E: ldind.u1
+IL_009F: ldc.i4 128
+IL_00A4: add
+IL_00A5: conv.u1
+IL_00A6: stind.i1
+IL_00A7: nop
+IL_00A8: ldarg.0
+IL_00A9: ldfld USBHIDSET.Form1::checkBox6
+IL_00AE: callvirt System.Windows.Forms.CheckBox::get_Checked()
+IL_00B3: stloc.s V_7
+IL_00B5: ldloc.s V_7
+IL_00B7: brfalse.s IL_00C9
+IL_00B9: nop
+IL_00BA: ldloc.0
+IL_00BB: ldc.i4.0
+IL_00BC: ldelema System.Byte
+IL_00C1: dup
+IL_00C2: ldind.u1
+IL_00C3: ldc.i4.s 64
+IL_00C5: add
+IL_00C6: conv.u1
+IL_00C7: stind.i1
+IL_00C8: nop
+IL_00C9: ldarg.0
+IL_00CA: ldfld USBHIDSET.Form1::checkBox7
+IL_00CF: callvirt System.Windows.Forms.CheckBox::get_Checked()
+IL_00D4: stloc.s V_8
+IL_00D6: ldloc.s V_8
+IL_00D8: brfalse.s IL_00EA
+IL_00DA: nop
+IL_00DB: ldloc.0
+IL_00DC: ldc.i4.0
+IL_00DD: ldelema System.Byte
+IL_00E2: dup
+IL_00E3: ldind.u1
+IL_00E4: ldc.i4.s 16
+IL_00E6: add
+IL_00E7: conv.u1
+IL_00E8: stind.i1
+IL_00E9: nop
+IL_00EA: ldarg.0
+IL_00EB: ldfld USBHIDSET.Form1::checkBox8
+IL_00F0: callvirt System.Windows.Forms.CheckBox::get_Checked()
+IL_00F5: stloc.s V_9
+IL_00F7: ldloc.s V_9
+IL_00F9: brfalse.s IL_010B
+IL_00FB: nop
+IL_00FC: ldloc.0
+IL_00FD: ldc.i4.0
+IL_00FE: ldelema System.Byte
+IL_0103: dup
+IL_0104: ldind.u1
+IL_0105: ldc.i4.s 32
+IL_0107: add
+IL_0108: conv.u1
+IL_0109: stind.i1
+IL_010A: nop
+IL_010B: ldloc.0
+IL_010C: ldc.i4.0
+IL_010D: ldelem.u1
+IL_010E: ldc.i4.0
+IL_010F: ceq
+IL_0111: stloc.s V_10
+IL_0113: ldloc.s V_10
+IL_0115: brfalse.s IL_012A
+IL_0117: nop
+IL_0118: ldstr "请选择要设定的快捷键"
+IL_011D: ldstr "提示"
+IL_0122: call System.Windows.Forms.MessageBox::Show(String, String)
+IL_0127: pop
+IL_0128: br.s IL_018B
+IL_012A: ldc.i4.8
+IL_012B: newarr System.Byte
+IL_0130: stloc.1
+IL_0131: ldloc.1
+IL_0132: ldc.i4.0
+IL_0133: ldc.i4.0
+IL_0134: stelem.i1
+IL_0135: ldloc.1
+IL_0136: ldc.i4.1
+IL_0137: ldc.i4 228
+IL_013C: stelem.i1
+IL_013D: ldloc.1
+IL_013E: ldc.i4.2
+IL_013F: ldloc.0
+IL_0140: ldc.i4.0
+IL_0141: ldelem.u1
+IL_0142: stelem.i1
+IL_0143: ldarg.0
+IL_0144: ldfld USBHIDSET.Form1::connBool
+IL_0149: brfalse.s IL_0156
+IL_014B: ldarg.0
+IL_014C: ldfld USBHIDSET.Form1::Devicexz
+IL_0151: ldnull
+IL_0152: cgt.un
+IL_0154: br.s IL_0157
+IL_0156: ldc.i4.0
+IL_0157: stloc.s V_11
+IL_0159: ldloc.s V_11
+IL_015B: brfalse.s IL_017E
+IL_015D: nop
+IL_015E: ldarg.0
+IL_015F: ldloc.1
+IL_0160: call USBHIDSET.Form1::Usb_send_data(Byte[])
+IL_0165: ldc.i4.0
+IL_0166: ceq
+IL_0168: stloc.s V_12
+IL_016A: ldloc.s V_12
+IL_016C: brfalse.s IL_017B
+IL_016E: nop
+IL_016F: ldstr "发送失败"
+IL_0174: call System.Windows.Forms.MessageBox::Show(String)
+IL_0179: pop
+IL_017A: nop
+IL_017B: nop
+IL_017C: br.s IL_018B
+IL_017E: nop
+IL_017F: ldstr "请连接USB"
+IL_0184: call System.Windows.Forms.MessageBox::Show(String)
+IL_0189: pop
+IL_018A: nop
+IL_018B: ret
+

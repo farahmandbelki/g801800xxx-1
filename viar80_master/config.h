@@ -1,0 +1,101 @@
+#pragma once
+
+/*
+鼠标键没反应 oled 不亮 旋钮不亮没有反应 小红点没反应 连接VIA有报错 灯效无法调整 指示轴灯不亮 有一个蜂鸣器板子一直亮着
+
+B10接键盘B11，B11接键盘B10
+B7接屏幕sda B6接屏幕scl
+去掉B15上拉电阻（以后再说）
+B8接旋钮A，B9接旋钮B
+A8接蜂鸣器
+A9 A10 A11 A12 A13接电磁阀（其中两个需要反过来）
+
+↓未做固件
+A4分压后接电池（电池--5.1K--引脚--5.1K--GND）
+B12接data B13接clk，上拉4.7K！！！
+A3 A6 A7接旋钮RGB：静音红灯，否则绿灯，亮度变化
+A0接左键，A1接右键，接到A2　X 接到键盘上
+
+B0, B1, B2空着
+NO a3接rgb
+*/
+
+#define AUDIO_CLICKY
+#define AUDIO_PIN A8
+#define AUDIO_PWM_DRIVER PWMD1
+#define AUDIO_PWM_CHANNEL 1
+#define AUDIO_POWER_CONTROL_PIN_ON_STATE 0
+// #define AUDIO_STATE_TIMER GPTD8
+
+#define SOLENOID_PINS   { A9, A10, A0, A1, A2 }
+#undef  SOLENOID_PINS_ACTIVE_STATE
+#define SOLENOID_PINS_ACTIVE_STATE { high, high, high, high, high }
+
+#define WS2812_DI_PIN B15
+#define WS2812_PWM_DRIVER PWMD1
+#define WS2812_PWM_CHANNEL 3
+#define WS2812_PWM_COMPLEMENTARY_OUTPUT
+#define WS2812_PWM_PAL_MODE 1
+#define WS2812_PWM_DMA_STREAM STM32_DMA1_STREAM5
+#define WS2812_PWM_DMA_CHANNEL 1
+
+/* RGB灯光 */
+
+#ifdef RGB_MATRIX_ENABLE
+    #define RGB_MATRIX_FRAMEBUFFER_EFFECTS
+    #define RGB_MATRIX_KEYPRESSES
+    #define RGB_SLEEP
+    #define RGB_MATRIX_STARTUP_MODE RGB_MATRIX_CYCLE_LEFT_RIGHT
+#endif
+
+#ifdef OLED_ENABLE
+#define OLED_DISPLAY_128X64
+#define I2C1_SCL_PIN B6
+#define I2C1_SDA_PIN B7
+#define I2C_DRIVER I2CD1
+#define OLED_TIMEOUT 0
+#endif
+
+#ifdef BATTERY_ENABLE
+#define BATTERY_ADC_PIN A4
+#define BATTERY_ADC_REF_VOLTAGE_MV 3300
+#define BATTERY_VOLTAGE_DIVIDER_R1 5100
+#define BATTERY_ADC_VOLTAGE_DIVIDER_R1 5100
+#define BATTERY_ADC_VOLTAGE_DIVIDER_R2 5100
+#endif
+
+#define WIRELESS_POWER_LED_RED_PIN  A5
+#define WIRELESS_POWER_LED_BLUE_PIN B1
+
+#define MASTER_RIGHT
+// #define USB_VBUS_PIN B15
+#define SERIAL_USART_FULL_DUPLEX   // Enable full duplex operation mode.
+#define SERIAL_USART_TX_PIN B10    // USART TX pin
+#define SERIAL_USART_RX_PIN B11    // USART RX pin
+#define SERIAL_USART_DRIVER SD3
+// #define SPLIT_TRANSPORT_MIRROR
+// #define SPLIT_LAYER_STATE_ENABLE
+#define SPLIT_LED_STATE_ENABLE
+// #define SPLIT_MODS_ENABLE
+// #define SPLIT_WPM_ENABLE
+// #define SPLIT_OLED_ENABLE
+// #define SPLIT_HAPTIC_ENABLE
+
+#define ENCODER_A_PINS { }
+#define ENCODER_B_PINS { }
+#define ENCODER_RESOLUTIONS { }
+#define ENCODER_A_PINS_RIGHT { B8 }
+#define ENCODER_B_PINS_RIGHT { B9 }
+#define ENCODER_RESOLUTIONS_RIGHT { 4 }
+#define ENCODER_BUTTON_PIN B0
+#define ENCODER_LED_RED_PIN A3
+#define ENCODER_LED_GREEN_PIN A6
+#define ENCODER_LED_BLUE_PIN A7
+
+#define BOOTMAGIC_ROW    0
+#define BOOTMAGIC_COLUMN 0
+
+#define PS2_CLOCK_PIN B13
+#define PS2_DATA_PIN  B12
+#define PS2_MOUSE_SCROLL_BTN_MASK 0
+#define PS2_MOUSE_INIT_DELAY 2000
